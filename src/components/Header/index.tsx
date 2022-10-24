@@ -1,10 +1,8 @@
-import React from 'react';
-import Menu from '../../ComponentsMUI/menu';
-
-
+import React from "react";
+import Menu from "../../ComponentsMUI/menu";
 
 const Header: React.FC = () => {
-    return <Menu/>
-}
+  return <Menu />;
+};
 
 export default Header;
