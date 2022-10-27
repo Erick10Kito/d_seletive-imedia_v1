@@ -1,8 +1,6 @@
 import React from "react";
-import { withStyles } from "@material-ui/core/styles";
-import Menu, { MenuProps } from "@material-ui/core/Menu";
-import MenuItem from "@material-ui/core/MenuItem";
 import { Link } from "react-router-dom";
+import { MenuItem, Menu, MenuProps, withStyles } from "@material-ui/core/";
 
 const StyledMenu = withStyles({
   paper: {
@@ -35,7 +33,7 @@ const StyledMenuItem = withStyles((theme) => ({
   },
 }))(MenuItem);
 
-export default function CustomizedMenus() {
+function CustomizedMenu() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -70,3 +68,5 @@ export default function CustomizedMenus() {
     </div>
   );
 }
+
+export { CustomizedMenu as Menu };
