@@ -2,12 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { MenuItem, Menu, MenuProps, withStyles } from "@material-ui/core/";
 
+
+
 const StyledMenu = withStyles({
   paper: {
     border: "1px solid #d3d4d5",
   },
 })((props: MenuProps) => (
-  <Menu
+  <Menu 
+  
     elevation={0}
     getContentAnchorEl={null}
     anchorOrigin={{
@@ -45,18 +48,20 @@ function CustomizedMenu() {
   };
 
   return (
-    <div className="h-24 bg-blue-800 flex items-center pr-2 pl-2">
+    <div className="h-24 flex items-center pr-2 pl-2">
       <button onClick={handleClick}>
-        ola
-        <img src="" alt="" />
+        
+        Ola
       </button>
       <StyledMenu
         anchorEl={anchorEl}
         open={Boolean(anchorEl)}
         onClose={handleClose}
+        
+        
       >
         <Link to="/">
-          <StyledMenuItem>Teste</StyledMenuItem>
+          <StyledMenuItem >Teste</StyledMenuItem>
         </Link>
         <Link to={"/"}>
           <StyledMenuItem>Teste</StyledMenuItem>
@@ -69,4 +74,4 @@ function CustomizedMenu() {
   );
 }
 
-export { CustomizedMenu as Menu };
+export {CustomizedMenu as Menu}
