@@ -1,11 +1,10 @@
-import { Menu } from "../../ComponentsMUI/menu";
+import { Navegation } from "../../ComponentsExtra/Navegation/index";
 
 const Header = () => {
   return (
-    <div className="pr-5 pl-5 bg-blue-800">
-      <Menu />
+    <div className="bg-blue-800 h-24">
+      <Navegation />
     </div>
-  
   );
 };
 
