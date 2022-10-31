@@ -25,43 +25,33 @@ import { visuallyHidden } from '@mui/utils';
     
 
 interface Data {
-  cnpj: number;
-  carbs: number;
-  fat: number;
+  cnpj: string;
+  tel: string;
+  mail: string;
   name: string;
   protein: number;
 }
 
 function createData(
   name: string,
-  cnpj: number,
-  fat: number,
-  carbs: number,
+  cnpj: string,
+  mail: string,
+  tel: string,
   protein: number,
 ): Data {
   return {
     name,
     cnpj,
-    fat,
-    carbs,
+    mail,
+    tel,
     protein,
   };
 }
 
 const rows = [
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Donut', 452, 25.0, 51, 4.9),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-  createData('Honeycomb', 408, 3.2, 87, 6.5),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Jelly Bean', 375, 0.0, 94, 0.0),
-  createData('KitKat', 518, 26.0, 65, 7.0),
-  createData('Lollipop', 392, 0.2, 98, 0.0),
-  createData('Marshmallow', 318, 0, 81, 2.0),
-  createData('Nougat', 360, 19.0, 9, 37.0),
-  createData('Oreo', 437, 18.0, 63, 4.0),
+  createData('Comércio de Livros LTDA', "85.681.832/0001-73", "comerciodelivros@email.com", "(35) 92854-1548", 4.3),
+  
+
 ];
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
@@ -120,19 +110,19 @@ const headCells: readonly HeadCell[] = [
     id: 'cnpj',
     numeric: true,
     disablePadding: false,
-    label: 'cnpj',
+    label: 'CNPJ',
   },
   {
-    id: 'fat',
+    id: 'mail',
     numeric: true,
     disablePadding: false,
-    label: 'Fat (g)',
+    label: 'E-mail',
   },
   {
-    id: 'carbs',
+    id: 'tel',
     numeric: true,
     disablePadding: false,
-    label: 'Carbs (g)',
+    label: 'Telefone',
   },
   {
     id: 'protein',
@@ -176,7 +166,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
         {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
-            align={headCell.numeric ? 'right' : 'left'}
+            
             padding={headCell.disablePadding ? 'none' : 'normal'}
             sortDirection={orderBy === headCell.id ? order : false}
           >
@@ -219,21 +209,20 @@ function EnhancedTableToolbar(props: EnhancedTableToolbarProps) {
     >
       {numSelected > 0 ? (
         <Typography
-          sx={{ flex: '1 1 100%' }}
-          color="inherit"
-          variant="subtitle1"
+          
+          
           component="div"
         >
           {numSelected} selected
         </Typography>
       ) : (
         <Typography
-          sx={{ flex: '1 1 100%' }}
-          variant="h6"
+          
           id="tableTitle"
           component="div"
+          className='text-gray-700 text-2xl font-bold'
         >
-          Nutrition
+          Clientes cadastrados
         </Typography>
       )}
       {numSelected > 0 ? (
@@ -355,7 +344,7 @@ export default function EnhancedTable() {
                       key={row.name}
                       selected={isItemSelected}
                     >
-                      <TableCell padding="checkbox">
+                      <TableCell  padding="checkbox">
                         <Checkbox
                           color="primary"
                           checked={isItemSelected}
@@ -365,6 +354,7 @@ export default function EnhancedTable() {
                         />
                       </TableCell>
                       <TableCell
+                      
                         component="th"
                         id={labelId}
                         scope="row"
@@ -372,10 +362,10 @@ export default function EnhancedTable() {
                       >
                         {row.name}
                       </TableCell>
-                      <TableCell align="right">{row.cnpj}</TableCell>
-                      <TableCell align="right">{row.fat}</TableCell>
-                      <TableCell align="right">{row.carbs}</TableCell>
-                      <TableCell align="right">{row.protein}</TableCell>
+                      <TableCell className='flex justify-center' >{row.cnpj}</TableCell>
+                      <TableCell className='flex justify-center' >{row.mail}</TableCell>
+                      <TableCell className='flex justify-center' >{row.tel}</TableCell>
+                      <TableCell className='flex justify-center'>{row.protein}</TableCell>
                     </TableRow>
                   );
                 })}

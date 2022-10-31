@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const MenuNavegation = () => {
   return (
    
-   <div className="absolute p-4 m-0 w-[380px] left-0 bg-blue-800">
+   <div className="absolute p-4 m-0 w-[380px] left-0 bg-blue-800 z-10">
    <div>
      <h1 className="text-white text-2xl leading-7">GESTÃO DE CLIENTES</h1>
       <ul className="pt-4 pb-12">
